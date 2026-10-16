@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090e18">
   <meta name="description"
-        content="Discover Sportspro for Android. Explore channels, enjoy fullscreen playback, adjust video size, and connect with support on Telegram.">
+        content="Download Sportspro for Android. Browse channels, enjoy fullscreen playback, and adjust your viewing experience.">
   <title>Sportspro — Your sports hub</title>
 
   <style>
@@ -19,11 +19,11 @@
       --line: rgba(255,255,255,.1);
       --gold: #e8c77a;
       --green: #b6f3b1;
-      --radius: 24px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       background: var(--bg);
@@ -32,34 +32,60 @@
       line-height: 1.65;
     }
 
-    button, a { -webkit-tap-highlight-color: transparent; }
-    button { font: inherit; }
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    h1,h2,h3,p { margin-top: 0; }
-    h1,h2,h3,.brand { font-family: "Space Grotesk", sans-serif; }
-    h1,h2 { line-height: 1.08; letter-spacing: -.055em; }
-    h1 { font-size: clamp(3.3rem, 7vw, 6.5rem); margin-bottom: 24px; }
-    h2 { font-size: clamp(2.2rem, 4vw, 4rem); margin-bottom: 22px; }
+    img { display: block; max-width: 100%; }
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1, h2, h3, .brand {
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    h1, h2 {
+      line-height: 1.08;
+      letter-spacing: -.055em;
+    }
+
+    h1 {
+      font-size: clamp(3.3rem, 7vw, 6.5rem);
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      margin-bottom: 22px;
+    }
+
     h3 { line-height: 1.25; }
     p { color: var(--muted); }
-    :focus-visible { outline: 3px solid var(--gold); outline-offset: 5px; }
-    .wrap { width: min(1180px, calc(100% - 40px)); margin: auto; }
-    .section { padding: 100px 0; }
+
+    :focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 5px;
+    }
+
+    [id] { scroll-margin-top: 100px; }
+
+    .wrap {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    .section { padding: 90px 0; }
+
     .eyebrow {
+      margin-bottom: 20px;
       color: var(--gold);
       font-size: 12px;
       font-weight: 700;
       letter-spacing: .18em;
       text-transform: uppercase;
-      margin-bottom: 20px;
     }
 
     header {
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(9,14,24,.93);
+      background: rgba(9,14,24,.95);
       border-bottom: 1px solid var(--line);
       backdrop-filter: blur(18px);
     }
@@ -72,9 +98,24 @@
       gap: 24px;
     }
 
-    .brand { display: flex; align-items: center; gap: 12px; font-size: 23px; font-weight: 700; }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 23px;
+      font-weight: 700;
+    }
+
     .brand svg { width: 38px; height: 38px; }
-    .navlinks { display: flex; align-items: center; gap: 28px; font-size: 14px; color: var(--muted); }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
     .navlinks a:hover { color: white; }
 
     .btn {
@@ -89,29 +130,66 @@
       background: var(--gold);
       color: #17140e;
       font-weight: 700;
-      cursor: pointer;
+      text-align: center;
       transition: transform .2s, background .2s;
     }
 
-    .btn:hover { transform: translateY(-2px); background: #f4d999; }
-    .btn.secondary { background: transparent; border-color: var(--line); color: var(--text); }
-    .btn.secondary:hover { background: rgba(255,255,255,.05); }
-    .btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 90px 0 75px;
-      background:
-        radial-gradient(ellipse at 90% 30%, rgba(62,105,89,.18), transparent 55%);
+    .btn:hover {
+      transform: translateY(-2px);
+      background: #f4d999;
     }
 
-    .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 60px; }
-    .hero-copy > p { max-width: 490px; font-size: 18px; margin-bottom: 30px; }
+    .btn.secondary {
+      background: transparent;
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .btn.secondary:hover {
+      background: rgba(255,255,255,.05);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero {
+      overflow: hidden;
+      padding: 85px 0 75px;
+      background:
+        radial-gradient(
+          ellipse at 90% 30%,
+          rgba(62,105,89,.18),
+          transparent 55%
+        );
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero-copy > p {
+      max-width: 490px;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
     .hero h1 span { color: var(--green); }
-    .micro { font-size: 12px; margin-top: 18px; }
-    .hero-art { position: relative; padding-bottom: 42px; }
+
+    .micro {
+      margin-top: 18px;
+      font-size: 12px !important;
+    }
+
+    .hero-art {
+      position: relative;
+      padding-bottom: 42px;
+    }
 
     .stadium {
       width: 100%;
@@ -136,8 +214,8 @@
 
     .preview {
       position: absolute;
-      left: -25px;
       bottom: 0;
+      left: -25px;
       width: calc(100% - 15px);
       padding: 20px;
       border: 1px solid #364333;
@@ -146,90 +224,289 @@
       box-shadow: 0 25px 70px #0008;
     }
 
-    .preview-top,.preview-bottom { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-    .preview-top span { font-size: 12px; color: var(--green); }
-    .preview-top small { color: var(--muted); font-size: 11px; }
-    .timeline { height: 3px; background: #34473b; margin: 27px 0 17px; }
-    .timeline::before { content: ""; display: block; width: 65%; height: 100%; background: var(--green); }
+    .preview-top, .preview-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .preview-top span {
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    .preview-top small {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .timeline {
+      height: 3px;
+      margin: 27px 0 17px;
+      background: #34473b;
+    }
+
+    .timeline::before {
+      content: "";
+      display: block;
+      width: 65%;
+      height: 100%;
+      background: var(--green);
+    }
+
     .preview-bottom { font-size: 13px; }
-    .size-pill { border: 1px solid #3b5040; padding: 4px 9px; border-radius: 7px; }
 
-    .ribbon { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .ribbon .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; padding: 23px 0; }
-    .ribbon span { font-size: 12px; letter-spacing: .12em; color: #b9c4d6; }
+    .size-pill {
+      padding: 4px 9px;
+      border: 1px solid #3b5040;
+      border-radius: 7px;
+    }
 
-    .section-head { max-width: 650px; margin-bottom: 45px; }
-    .features { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
-    .feature { padding: 30px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
-    .feature .number { display: block; color: var(--gold); font-size: 12px; margin-bottom: 35px; letter-spacing: .12em; }
-    .feature h3 { font-size: 21px; margin-bottom: 12px; }
-    .feature p { font-size: 14px; margin: 0; }
+    .ribbon {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
 
-    .playback { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+    .ribbon .wrap {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 23px 0;
+    }
+
+    .ribbon span {
+      color: #b9c4d6;
+      font-size: 12px;
+      letter-spacing: .12em;
+    }
+
+    .section-head {
+      max-width: 650px;
+      margin-bottom: 45px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--panel);
+    }
+
+    .number {
+      display: block;
+      margin-bottom: 30px;
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: .12em;
+    }
+
+    .feature h3 {
+      margin-bottom: 12px;
+      font-size: 21px;
+    }
+
+    .feature p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .playback {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 70px;
+    }
+
     .screen {
-      background: linear-gradient(140deg,#19352a,#10221c);
-      border: 1px solid #314d3a;
-      padding: 35px;
-      border-radius: 26px;
-      min-height: 330px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      min-height: 330px;
+      padding: 35px;
+      border: 1px solid #314d3a;
+      border-radius: 26px;
+      background: linear-gradient(140deg, #19352a, #10221c);
     }
-    .screen small { color: #b7c9bc; letter-spacing: .14em; }
-    .play-symbol { font-size: 72px; line-height: 1; text-align: center; color: var(--green); }
-    .modes { display: flex; gap: 10px; justify-content: center; }
-    .modes span { padding: 6px 16px; border: 1px solid #42654b; border-radius: 7px; font-size: 13px; }
-    .modes span:first-child { background: var(--green); color: #14291a; }
-    .checks { list-style: none; padding: 0; color: var(--muted); }
-    .checks li { padding: 12px 0; border-bottom: 1px solid var(--line); }
-    .checks li::before { content: "✓"; color: var(--green); margin-right: 12px; }
+
+    .screen small {
+      color: #b7c9bc;
+      letter-spacing: .14em;
+    }
+
+    .play-symbol {
+      color: var(--green);
+      font-size: 72px;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .modes {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .modes span {
+      padding: 6px 16px;
+      border: 1px solid #42654b;
+      border-radius: 7px;
+      font-size: 13px;
+    }
+
+    .modes span:first-child {
+      background: var(--green);
+      color: #14291a;
+    }
+
+    .checks {
+      padding: 0;
+      color: var(--muted);
+      list-style: none;
+    }
+
+    .checks li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .checks li::before {
+      content: "✓";
+      margin-right: 12px;
+      color: var(--green);
+    }
 
     .download-panel {
       display: grid;
       grid-template-columns: 1.2fr 1fr;
       gap: 50px;
       padding: 55px;
-      background: #14231d;
       border: 1px solid #344a37;
       border-radius: 28px;
+      background: #14231d;
     }
-    .download-panel h2 { font-size: clamp(2.3rem,4vw,3.7rem); }
-    .download-panel .note { margin: 18px 0 0; font-size: 13px; }
-    .steps { list-style: none; padding: 0; margin: 0; counter-reset: install; }
-    .steps li { position: relative; padding: 0 0 24px 47px; counter-increment: install; }
+
+    .download-panel h2 {
+      font-size: clamp(2.3rem, 4vw, 3.7rem);
+    }
+
+    .release-label {
+      display: inline-block;
+      padding: 5px 12px;
+      margin-bottom: 20px;
+      border: 1px solid #466149;
+      border-radius: 30px;
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    .note {
+      margin-top: 18px;
+      font-size: 13px;
+    }
+
+    .steps {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      counter-reset: install;
+    }
+
+    .steps li {
+      position: relative;
+      padding: 0 0 24px 47px;
+      counter-increment: install;
+    }
+
     .steps li::before {
       content: counter(install);
       position: absolute;
-      left: 0;
       top: 0;
-      width: 30px;
-      height: 30px;
+      left: 0;
       display: grid;
       place-items: center;
+      width: 30px;
+      height: 30px;
       border: 1px solid #4b624e;
       border-radius: 50%;
       color: var(--green);
       font-size: 13px;
     }
+
     .steps strong { display: block; }
-    .steps p { font-size: 13px; margin: 4px 0 0; }
 
-    .faq-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 70px; }
-    details { border-bottom: 1px solid var(--line); padding: 20px 0; }
-    summary { cursor: pointer; font-size: 17px; font-weight: 600; }
-    details p { margin: 15px 0 0; font-size: 14px; }
+    .steps p {
+      margin: 4px 0 0;
+      font-size: 13px;
+    }
 
-    .support { text-align: center; border-top: 1px solid var(--line); padding: 65px 20px; }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 70px;
+    }
+
+    details {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    summary {
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    details p {
+      margin: 15px 0 0;
+      font-size: 14px;
+    }
+
+    .support {
+      padding: 65px 20px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
     .support h2 { font-size: 34px; }
-    footer { padding: 25px 0; border-top: 1px solid var(--line); }
-    .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; font-size: 12px; color: var(--muted); }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
     .footer-inner a { color: var(--gold); }
 
     @media (max-width: 900px) {
-      .hero-grid,.playback,.download-panel,.faq-grid { grid-template-columns: 1fr; gap: 35px; }
-      .features { grid-template-columns: repeat(2,1fr); }
-      .hero-art { max-width: 600px; width: 100%; margin: auto; }
+      .hero-grid, .playback, .download-panel, .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .features { grid-template-columns: repeat(2, 1fr); }
+
+      .hero-art {
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+      }
+
       .preview { left: 10px; }
       .section { padding: 70px 0; }
       .navlinks a:not(.btn) { display: none; }
@@ -240,13 +517,24 @@
       .wrap { width: calc(100% - 32px); }
       nav { min-height: 72px; }
       .brand { font-size: 21px; }
-      .navlinks .btn { min-height: 42px; padding: 8px 13px; font-size: 12px; }
+
+      .navlinks .btn {
+        min-height: 42px;
+        padding: 8px 13px;
+        font-size: 12px;
+      }
+
       .hero { padding-top: 55px; }
       .hero-copy > p { font-size: 16px; }
       .features { grid-template-columns: 1fr; }
-      .feature .number { margin-bottom: 20px; }
+      .number { margin-bottom: 20px; }
       .download-panel { padding: 28px; }
-      .stadium { height: 350px; border-top-left-radius: 95px; }
+
+      .stadium {
+        height: 350px;
+        border-top-left-radius: 95px;
+      }
+
       .ribbon .wrap { justify-content: center; }
       .screen { padding: 25px; }
     }
@@ -284,31 +572,46 @@
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <div class="eyebrow">Sportspro for Android</div>
-          <h1>Your sports.<br>Your screen.<br><span>Your way.</span></h1>
+
+          <h1>
+            Your sports.<br>
+            Your screen.<br>
+            <span>Your way.</span>
+          </h1>
 
           <p>
             Find your channel, open the player, and settle in.
-            Sportspro brings channel browsing and flexible video
-            controls together in one Android app.
+            Sportspro brings channel browsing and flexible
+            video controls together in one Android app.
           </p>
 
           <div class="actions">
-            <a class="btn" href="#download">Download for Android ↓</a>
-            <a class="btn secondary" data-telegram
-               target="_blank" rel="noopener noreferrer">Contact on Telegram ↗</a>
+            <a class="btn"
+               href="https://github.com/Samjo1985/sportspro-website/releases/download/v5.0/SportsPro_5.0.apk">
+              Download for Android ↓
+            </a>
+
+            <a class="btn secondary"
+               href="https://t.me/sportsproapp"
+               target="_blank"
+               rel="noopener noreferrer">
+              Contact on Telegram ↗
+            </a>
           </div>
 
           <p class="micro">
-            Android APK · Shared-password access · Activation through Telegram
+            Android APK · Version 5.0 · Access details through Telegram
           </p>
         </div>
 
         <div class="hero-art">
-          <img class="stadium"
-               src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&amp;fit=crop&amp;w=1100&amp;q=85"
-               alt="Football stadium under floodlights"
-               fetchpriority="high"
-               width="1100" height="1200">
+          <img
+            class="stadium"
+            src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&amp;fit=crop&amp;w=1100&amp;q=85"
+            alt="Football stadium under floodlights"
+            width="1100"
+            height="1200"
+            fetchpriority="high">
 
           <span class="image-label">THE MATCHDAY FEELING</span>
 
@@ -317,9 +620,11 @@
               <span>SPORTSPRO PLAYER</span>
               <small>Illustrative preview</small>
             </div>
+
             <div class="timeline"></div>
+
             <div class="preview-bottom">
-              <span>◀ &nbsp; ❚❚ &nbsp; ▶</span>
+              <span aria-hidden="true">◀ &nbsp; ❚❚ &nbsp; ▶</span>
               <span class="size-pill">Fit · Fill · Zoom</span>
             </div>
           </div>
@@ -351,58 +656,82 @@
           <article class="feature">
             <span class="number">01 / DISCOVER</span>
             <h3>Channel browsing</h3>
-            <p>Browse channel names and logos, then tap to start loading your selection.</p>
+            <p>
+              Browse channel names and logos, then tap to
+              start loading your selection.
+            </p>
           </article>
 
           <article class="feature">
             <span class="number">02 / WATCH</span>
             <h3>Fullscreen player</h3>
-            <p>Supported streams open in the native video player with accessible playback controls.</p>
+            <p>
+              Supported streams open in the native video player
+              with accessible playback controls.
+            </p>
           </article>
 
           <article class="feature">
             <span class="number">03 / ADJUST</span>
             <h3>Fit, Fill or Zoom</h3>
-            <p>Show the entire frame, stretch it to the screen, or zoom in with cropped edges.</p>
+            <p>
+              Show the entire frame, stretch it to the screen,
+              or zoom in with cropped edges.
+            </p>
           </article>
 
           <article class="feature">
             <span class="number">04 / ROTATE</span>
             <h3>Landscape ready</h3>
-            <p>Turn your phone sideways for landscape viewing during supported player sessions.</p>
+            <p>
+              Turn your phone sideways for landscape viewing
+              during supported player sessions.
+            </p>
           </article>
 
           <article class="feature">
             <span class="number">05 / STAY INFORMED</span>
-            <h3>Loading & viewer status</h3>
-            <p>See buffering indicators and an approximate count of active viewers across supported players.</p>
+            <h3>Loading &amp; viewer status</h3>
+            <p>
+              See buffering indicators and an approximate count
+              of active viewers across supported players.
+            </p>
           </article>
 
           <article class="feature">
             <span class="number">06 / CONNECT</span>
-            <h3>Updates & support</h3>
-            <p>Read in-app announcements and contact the team on Telegram for access or assistance.</p>
+            <h3>Updates &amp; support</h3>
+            <p>
+              Read in-app announcements and contact the team
+              on Telegram for access or assistance.
+            </p>
           </article>
         </div>
       </div>
-    </section>
-
-    <section class="section" style="padding-top:0">
+  </section>
+      <section class="section" style="padding-top:0">
       <div class="wrap playback">
-        <div class="screen" aria-label="Illustration of video size options">
+        <div class="screen"
+             aria-label="Illustration of video size options">
           <small>MADE FOR YOUR SCREEN</small>
+
           <div class="play-symbol" aria-hidden="true">▶</div>
+
           <div class="modes">
-            <span>Fit</span><span>Fill</span><span>Zoom</span>
+            <span>Fit</span>
+            <span>Fill</span>
+            <span>Zoom</span>
           </div>
         </div>
 
         <div>
           <div class="eyebrow">Make yourself comfortable</div>
           <h2>A player that<br>gets out of the way.</h2>
+
           <p>
-            Tap to reveal the controls. After a few seconds without
-            interaction, they disappear so you can enjoy the picture.
+            Tap to reveal the controls. After a few seconds
+            without interaction, they disappear so you can
+            enjoy the picture.
           </p>
 
           <ul class="checks">
@@ -413,8 +742,9 @@
           </ul>
 
           <p class="micro">
-            Stream availability, quality and compatibility depend on the source.
-            DRM-protected content requires a supported, authorized integration.
+            Stream availability, quality and compatibility depend
+            on the source. DRM-protected content requires a
+            supported, authorized integration.
           </p>
         </div>
       </div>
@@ -424,44 +754,67 @@
       <div class="wrap download-panel">
         <div>
           <div class="eyebrow">Take Sportspro with you</div>
+          <span class="release-label">ANDROID · VERSION 5.0</span>
+
           <h2>Your next session<br>starts here.</h2>
+
           <p>
             Download the Android APK, install it, and contact us
             on Telegram for current access details.
           </p>
 
-          <button class="btn" id="downloadButton" disabled>
-            APK download not configured
-          </button>
+          <a class="btn"
+             href="https://github.com/Samjo1985/sportspro-website/releases/download/v5.0/SportsPro_5.0.apk">
+            Download Android APK ↓
+          </a>
 
-          <p class="note" id="downloadStatus" role="status">
-            The download link will appear when the developer adds the APK.
+          <p class="note">
+            Sportspro 5.0 · APK download hosted on GitHub Releases.
+            An internet connection is required for streaming.
           </p>
+
+          <a
+            href="https://github.com/Samjo1985/sportspro-website/releases/tag/v5.0"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="color:var(--green);font-size:13px;text-decoration:underline">
+            View release details ↗
+          </a>
         </div>
 
         <div id="install">
           <ol class="steps">
             <li>
               <strong>Download the APK</strong>
-              <p>Use this page’s download button once the file is available.</p>
+              <p>
+                Tap Download Android APK and wait for the
+                file to finish downloading.
+              </p>
             </li>
+
             <li>
               <strong>Install on Android</strong>
               <p>
-                Open the file. If prompted, allow installation from the
-                browser or file manager you used, then follow Android’s instructions.
+                Open the downloaded file. If prompted, allow
+                installation from your browser or file manager,
+                then follow Android’s instructions.
               </p>
             </li>
+
             <li>
               <strong>Get your access details</strong>
               <p>
-                Contact us on Telegram about available plans and the
-                shared access password. No payment form is included here.
+                Contact us on Telegram about available plans
+                and the shared access password.
               </p>
             </li>
+
             <li>
               <strong>Open and explore</strong>
-              <p>Enter your access password and choose an available channel.</p>
+              <p>
+                Enter your access password and choose an
+                available channel.
+              </p>
             </li>
           </ol>
         </div>
@@ -478,47 +831,63 @@
         <div>
           <details>
             <summary>Is Sportspro available for iPhone?</summary>
-            <p>This download is an Android APK. It cannot be installed on iOS.</p>
+            <p>
+              This download is an Android APK. It cannot
+              be installed on iOS.
+            </p>
           </details>
 
           <details>
             <summary>How do I get premium access?</summary>
             <p>
-              Contact the team on Telegram for current plans, pricing,
-              and access instructions. The current app uses a shared password.
+              Contact the team on Telegram for current plans,
+              pricing and access instructions. The current
+              app uses a shared password.
             </p>
           </details>
 
           <details>
             <summary>Why does a channel sometimes buffer?</summary>
             <p>
-              Playback depends on your connection and the stream provider.
-              A slow or unavailable source can cause buffering or prevent playback.
+              Playback depends on your connection and the stream
+              provider. A slow or unavailable source can cause
+              buffering or prevent playback.
             </p>
           </details>
 
           <details>
             <summary>Does every video support HD or 4K?</summary>
             <p>
-              No. Resolution depends on the source stream, your device,
-              and available bandwidth. Sportspro does not guarantee a particular quality.
+              No. Resolution depends on the source stream, your
+              device and available bandwidth. Sportspro does
+              not guarantee a particular quality.
             </p>
           </details>
 
           <details>
             <summary>Where can I find announcements?</summary>
             <p>
-              Open “Latest updates” inside the app, or visit the Telegram channel
-              for information from the developer.
+              Open Latest updates inside the app, or visit the
+              Telegram channel for information from the developer.
             </p>
           </details>
 
           <details>
             <summary>What should I do if installation fails?</summary>
             <p>
-              Check available storage and confirm that the APK downloaded completely.
-              For an update, use an APK signed by the same developer.
-              Contact support before uninstalling if you need to preserve app data.
+              Check available storage and confirm that the APK
+              downloaded completely. For an update, use an APK
+              signed by the same developer. Contact support
+              before uninstalling if you need to preserve app data.
+            </p>
+          </details>
+
+          <details>
+            <summary>What if the download does not start?</summary>
+            <p>
+              Open this website in Chrome and try again.
+              You can also download the attached APK from the
+              GitHub release page using View release details above.
             </p>
           </details>
         </div>
@@ -528,86 +897,33 @@
     <section class="support">
       <div class="eyebrow">A little help, when you need it</div>
       <h2>Let’s get you watching.</h2>
-      <p>For access enquiries, installation help, or app feedback.</p>
-      <a class="btn secondary" data-telegram
-         target="_blank" rel="noopener noreferrer">
-        Message on Telegram ↗
+
+      <p>
+        For access enquiries, installation help or app feedback.
+      </p>
+
+      <a class="btn secondary"
+         href="https://t.me/sportsproapp"
+         target="_blank"
+         rel="noopener noreferrer">
+        Contact on Telegram ↗
       </a>
     </section>
   </main>
 
   <footer>
     <div class="wrap footer-inner">
-      <span>© <span id="year"></span> Sportspro · Developer: Sam Joseph</span>
+      <span>Sportspro · Developer: Sam Joseph</span>
+
       <span>
-        <a data-telegram target="_blank" rel="noopener noreferrer">Contact</a>
+        <a href="https://t.me/sportsproapp"
+           target="_blank"
+           rel="noopener noreferrer">
+          Contact
+        </a>
         &nbsp; · &nbsp; Android application
       </span>
     </div>
   </footer>
-
-  <script>
-    /*
-      WEBSITE SETTINGS
-
-      1. Upload your signed APK to your hosting service.
-      2. Paste its direct HTTPS file URL into apkUrl below.
-      3. Confirm the Telegram address is your preferred contact.
-
-      Example:
-      apkUrl: "https://your-domain.com/downloads/sportspro.apk"
-
-      A same-origin APK URL works best for downloading.
-      External hosts may open a new page instead.
-    */
-
-    const CONFIG = {
-      apkUrl: "https://github.com/Samjo1985/sportspro-website/releases/download/v5.0/SportsPro_5.0.apk",
-      telegramUrl: "https://t.me/sportsproapp"
-    };
-
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-    document.querySelectorAll("[data-telegram]").forEach(link => {
-      link.href = CONFIG.telegramUrl;
-    });
-
-    const downloadButton = document.getElementById("downloadButton");
-    const downloadStatus = document.getElementById("downloadStatus");
-
-    if (CONFIG.apkUrl.trim()) {
-      try {
-        const apk = new URL(CONFIG.apkUrl, window.location.href);
-
-        if (apk.protocol !== "https:") {
-          throw new Error("Use an HTTPS APK address.");
-        }
-
-        downloadButton.disabled = false;
-        downloadButton.textContent = "Download Android APK ↓";
-
-        downloadStatus.textContent =
-          "Download the APK directly. An internet connection is required for streaming.";
-
-        downloadButton.addEventListener("click", () => {
-          const link = document.createElement("a");
-          link.href = apk.href;
-          link.download = "Sportspro.apk";
-          link.rel = "noopener";
-          document.body.appendChild(link);
-          link.click();
-          link.remove();
-
-          downloadStatus.textContent =
-            "Download requested. Check your browser’s downloads.";
-        });
-
-      } catch (error) {
-        downloadStatus.textContent =
-          "The APK download link needs to be corrected.";
-      }
-    }
-  </script>
 </body>
 </html>
